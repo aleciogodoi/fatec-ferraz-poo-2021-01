@@ -1,0 +1,9 @@
+
+public class Array {
+
+	public static void main(String[] args) {
+		//cars = ["Ford", "Volvo", "BMW", 1, 1.15];
+		String[] cars = {"Ford","Volvo", "BMW" };
+	}
+	
+}
