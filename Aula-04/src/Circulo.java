@@ -1,8 +1,26 @@
+import javax.swing.JOptionPane;
+
 public class Circulo {
 	// Atributos
 	float x;
 	float y; 
 	float raio;
+	// Construtores
+	Circulo(){
+		x = 10;
+		y = 20;
+		raio = 10;
+	}
+	Circulo(float x1, float y1, float r){
+		this.x = x1;
+		this.y = y1;
+		this.raio = r;
+	}
+	Circulo(float x, float y, String m){
+		this.x = x;
+		this.y = y;
+		JOptionPane.showMessageDialog(null, m);
+	}
 	// Metodos
 	public void move(float x, float y) {
 		this.x = x;

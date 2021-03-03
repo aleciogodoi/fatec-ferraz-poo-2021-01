@@ -3,13 +3,13 @@ public class TesteCirculo {
 		// Cria um objeto do tipo circulo chamado c1
 		Circulo c1 = new Circulo();
 		// Cria um objeto do tipo circulo chamado c2
-		Circulo c2 = new Circulo();
-		c2.raio(3.28f);
-		c2.move(1.7f, 2.43f);
+		Circulo c2 = new Circulo(5, 3, "Olá mundo!!! Sou o c2!!!");
+		//c2.raio(3.28f);
+		//c2.move(1.7f, 2.43f);
 		// Array de circulos
 		Circulo[] circulos = new Circulo[5];
 		for (int i=0; i < circulos.length; i++) {
-			circulos[i] = new Circulo();
+			circulos[i] = new Circulo(10, 20, 5);
 			circulos[i].raio((i+1)*2);
 			circulos[i].move(i*2, i*2+1);
 			circulos[i].imprime();
