@@ -12,7 +12,7 @@ public class Circulo {
 		this.raio = r;
 	}
 	public void imprime() {
-		System.out.println("Círculo[ x: "+x+", y: "+y+
+		System.out.println("Círculo ("+this+") [ x: "+x+", y: "+y+
 				", Raio: "+raio+", Área: "+String.format("%.2f",calcularArea())+" ]");
 	}
 	public float calcularArea() {

@@ -2,6 +2,18 @@ public class TesteCirculo {
 	public static void main(String[] args) {
 		// Cria um objeto do tipo circulo chamado c1
 		Circulo c1 = new Circulo();
+		// Cria um objeto do tipo circulo chamado c2
+		Circulo c2 = new Circulo();
+		c2.raio(3.28f);
+		c2.move(1.7f, 2.43f);
+		// Array de circulos
+		Circulo[] circulos = new Circulo[5];
+		for (int i=0; i < circulos.length; i++) {
+			circulos[i] = new Circulo();
+			circulos[i].raio((i+1)*2);
+			circulos[i].move(i*2, i*2+1);
+			circulos[i].imprime();
+		}
 		// Altera valores dos atributos de c1
 		c1.raio = 5.2f;
 		c1.x = 2.1f;
@@ -18,5 +30,6 @@ public class TesteCirculo {
 		// Alterando x e y metodo move
 		c1.move(7.35f, 4.29f);
 		c1.imprime();
+		c2.imprime();
 	}
 }
