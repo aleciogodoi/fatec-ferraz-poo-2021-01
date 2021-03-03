@@ -3,7 +3,6 @@ public class Circulo {
 	float x;
 	float y; 
 	float raio;
-	
 	// Metodos
 	public void move(float x, float y) {
 		this.x = x;
@@ -14,10 +13,9 @@ public class Circulo {
 	}
 	public void imprime() {
 		System.out.println("Círculo[ x: "+x+", y: "+y+
-				", Raio: "+raio+", Área: "+calcularArea()+" ]");
+				", Raio: "+raio+", Área: "+String.format("%.2f",calcularArea())+" ]");
 	}
 	public float calcularArea() {
 		return (float)(Math.PI * Math.pow(raio, 2) );
 	}
-	
 }
