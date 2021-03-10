@@ -2,19 +2,20 @@ import javax.swing.JOptionPane;
 
 public class Animal {
 	// Atributos
-	String nome;
-	String classe;
-	String familia;
-	int idade;
-	int caloria;
-	int forca;
-	boolean estado;
+	private String nome;
+	private String classe;
+	private String familia;
+	private int idade;
+	private int caloria;
+	private int forca;
+	private boolean estado;
 	// Construtor
 	Animal(){
 		nascer();
 	}
 	// Metodos
 	private void nascer() {
+		int aux = 0;
 		nome = JOptionPane.showInputDialog("Nome");
 		classe = JOptionPane.showInputDialog("Classe");
 		familia = JOptionPane.showInputDialog("Família");
