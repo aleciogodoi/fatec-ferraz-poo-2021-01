@@ -24,21 +24,24 @@ public class ExemploArrayList {
 		System.out.println("Procurando Mazda: " + carros.indexOf("Mazda"));
 		System.out.println("Procurando Mazdax: " + carros.indexOf("Mazdax"));
 
-		// Removendo um item
-		carros.remove(0);
-		System.out.println(carros);
 
 		// Tamanho do ArrayList
 		System.out.println("Tamanho do ArrayList: "+carros.size());
 
 		// Loop pelo ArrayList
 		for (int i = 0; i < carros.size(); i++) {
-			System.out.println(carros.get(i));
+			if (i % 2== 0)
+				System.out.println(carros.get(i));
 		}
 		
-		for (String carro: carros) {
-			System.out.println(carro);
+		for (String c: carros) {
+			System.out.println(c);
 		}
+		
+		// Removendo um item
+		carros.remove(0);
+		System.out.println(carros);
+
 		
 		// Removendo todos os itens
 		carros.clear();
