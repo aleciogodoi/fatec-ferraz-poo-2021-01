@@ -20,5 +20,6 @@ public class Teste {
 		despJoao.despesas.add(new Despesa(LocalDate.of(2020,2,4),"Luz",67.31));
 		despJoao.despesas.add(new Despesa(LocalDate.of(2020,2,5),"Internet",55.43));
 		despJoao.imprime();
+		despJoao.imprime(LocalDate.of(2020,2,1));
 	}
 }
