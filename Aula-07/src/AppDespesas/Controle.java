@@ -1,6 +1,7 @@
 package AppDespesas;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 
 import javax.swing.JOptionPane;
 
@@ -13,6 +14,8 @@ public class Controle {
 	static double valor;
 	
 	public static void main(String[] args) {
+		LocalDate dtAtual = LocalDate.now(); // Data Atual
+		
 		String cpf = JOptionPane.showInputDialog("CPF: ");
 		DespesaPessoal despesaPessoal = new DespesaPessoal(cpf);
 		carga(despesaPessoal);
@@ -27,6 +30,10 @@ public class Controle {
 					+ "7 - Imprimir despesas de m dia/mês/ano\n"
 					+ "8 - Sair";
 		do {
+			// Atualiza data
+			dia = dtAtual.getDayOfMonth();
+			mes = dtAtual.getMonthValue();
+			ano = dtAtual.getYear();
 			opcao = Integer.valueOf(JOptionPane.showInputDialog(menu));
 			switch (opcao) {
 			case 1:
@@ -87,15 +94,15 @@ public class Controle {
 	}
 	
 	public static void entradaDia(){
-		dia = Integer.valueOf(JOptionPane.showInputDialog("Dia:"));
+		dia = Integer.valueOf(JOptionPane.showInputDialog("Dia:", dia));
 	}
 	
 	public static void entradaMes(){
-		mes = Integer.valueOf(JOptionPane.showInputDialog("Mês:"));
+		mes = Integer.valueOf(JOptionPane.showInputDialog("Mês:", mes));
 	}
 	
 	public static void entradaAno(){
-		ano = Integer.valueOf(JOptionPane.showInputDialog("Ano:"));
+		ano = Integer.valueOf(JOptionPane.showInputDialog("Ano:", ano));
 	}
 	
 	public static void carga(DespesaPessoal dp) {
