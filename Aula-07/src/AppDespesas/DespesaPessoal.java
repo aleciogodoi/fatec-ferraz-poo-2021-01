@@ -35,12 +35,22 @@ public class DespesaPessoal {
 	}
 	
 	public double getTotal(int ano, int mes) {
-		return 0;
+		double total=0;
+		for(Despesa despesa: despesas) {
+			if (	despesa.getData().getYear() == ano 
+				&&	despesa.getData().getMonthValue() == mes)
+				total += despesa.getValor();
+		}
+		return total;
 	}
 	
 	public double getTotal(LocalDate data) {
-
-		return 0;
+		double total=0;
+		for(Despesa despesa: despesas) {
+			if (data.equals(despesa.getData()) )
+				total += despesa.getValor();
+		}
+		return total;
 	}
 
 	public void imprime() {	
@@ -59,6 +69,20 @@ public class DespesaPessoal {
 	}
 	
 	public void imprime(int ano, int mes) {
+		String space = "                           ";
+		System.out.println("-------------------------------------------------------------------");
+		System.out.println("CPF: "+this.cpf);
+		System.out.println("-------------------------------------------------------------------");
+		for(Despesa despesa: despesas) {
+			if (	despesa.getData().getYear() == ano 
+				&&	despesa.getData().getMonthValue() == mes)
+				System.out.println(
+						(despesa.getDescDespesa()+space).substring(0,30)+"\t"+
+						 despesa.getData()+"\t\t"+despesa.getValor()
+				);		
+		}
+		System.out.println("-------------------------------------------------------------------");	
+		System.out.println(space + "\t\t\t\t" + this.getTotal(ano,  mes));
 	}
 	
 	public void imprime(LocalDate data) {	
@@ -74,7 +98,7 @@ public class DespesaPessoal {
 				);		
 		}
 		System.out.println("-------------------------------------------------------------------");
-		//System.out.println(space + "\t\t\t\t" + this.getTotal());
+		System.out.println(space + "\t\t\t\t" + this.getTotal(data));
 		
 	}
 
