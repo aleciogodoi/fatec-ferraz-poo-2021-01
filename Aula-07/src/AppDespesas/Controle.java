@@ -41,6 +41,7 @@ public class Controle {
 				break;
 			case 2:
 				JOptionPane.showMessageDialog(null,"Total Geral das despesas: "+despesaPessoal.getTotal());
+				break;
 			case 3: 
 				entradaMes();
 				entradaAno();
@@ -54,8 +55,23 @@ public class Controle {
 				JOptionPane.showMessageDialog(null,
 						"Total Geral das despesas "+dia+"/"+mes+"/"+ano+": "+
 								despesaPessoal.getTotal(LocalDate.of(ano, mes, dia)));
-
+				break;
+			case 5:
+				despesaPessoal.imprime();
+				break;
+			case 6:
+				entradaMes();
+				entradaAno();
+				despesaPessoal.imprime(ano, mes);
+				break;
+			case 7:
+				entradaDia();
+				entradaMes();
+				entradaAno();
+				despesaPessoal.imprime(LocalDate.of(ano, mes, dia));
+				break;
 			}
+
 
 		} while (opcao !=8);
 		
@@ -108,6 +124,19 @@ public class Controle {
 		dp.despesas.add(new Despesa(LocalDate.of(2021,2,2),"Gas",20.17));
 		dp.despesas.add(new Despesa(LocalDate.of(2021,2,4),"Luz",67.31));
 		dp.despesas.add(new Despesa(LocalDate.of(2021,2,5),"Internet",55.43));
+		
+		dp.despesas.add(new Despesa(LocalDate.of(2021,3,1),"Mercado",100.89));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,3,1),"Farmarcia",32.77));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,3,1),"Feira",25.50));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,3,2),"Gas",70.55));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,4,4),"Luz",65.33));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,4,5),"Internet",80.12));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,4,1),"Mercado",125.22));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,4,1),"Farmarcia",52.21));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,5,1),"Feira",21.15));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,5,2),"Gas",75.17));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,5,4),"Luz",92.31));
+		dp.despesas.add(new Despesa(LocalDate.of(2021,5,5),"Internet",45.43));
 	}
 
 }
