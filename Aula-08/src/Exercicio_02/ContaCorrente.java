@@ -3,7 +3,7 @@ package Exercicio_02;
 public class ContaCorrente {
 	// Atributos
 	private String numero;
-	private double saldo;
+	protected double saldo;
 	private Cliente cliente;
 	// Construtor
 	public ContaCorrente(String numero, Cliente cliente) {
@@ -37,15 +37,36 @@ public class ContaCorrente {
 	}	
 
 	public boolean deposito(double valor) {
+		if (valor <= 0) {
+			System.out.println(this.toString()+"\nDepósito não efetuado! Valor inválido! ("+valor+")\n");
+			return false;
+		}
+		saldo += valor;
+		System.out.println(this.toString()+"\nDepósito efetuado! Valor ("+valor+")\n");
 		return true;
 	}
 
 	public boolean saque(double valor) {
+		if (valor <= 0) {
+			System.out.println(this.toString()+"\nSaque não efetuado! Valor inválido! ("+valor+")\n");
+			return false;
+		} else if (saldo - valor < 0) {
+			System.out.println(this.toString()+"\nSaque não efetuado! Saldo insuficiente! Valor Saque ("+valor+")\n");
+			return false;			
+		}
+		saldo -= valor;
+		System.out.println(this.toString()+"\nSaque efetuado! Valor ("+valor+")\n");
 		return true;
 	}
 
 	public void transferencia(double valor, ContaCorrente contaTransf) {
-		
+		// Uma transferencia, nada mais é do que um saque em uma conta e o deposito em outra conta
+		System.out.println("Transferência");
+		if (!this.saque(valor)) {
+			System.out.println(this.toString()+"\nErro na Tranferência!\n");
+		} else {
+			contaTransf.deposito(valor);
+		}		
 	}
 	
 	
