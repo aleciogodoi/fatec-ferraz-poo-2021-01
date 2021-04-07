@@ -2,9 +2,14 @@ package Exercicio_02;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class TesteContaCorrente {
 
 	public static void main(String[] args) {
+		
+		ContaCorrente conta;
+		
 		ContaCorrente conta1 = new ContaCorrente("1234-X", new Cliente(1, "Pedro"));
 		ContaCorrente conta2 = new ContaCorrente("5431-X", new Cliente(2, "Ana"));
 		
@@ -42,6 +47,23 @@ public class TesteContaCorrente {
 		for (ContaCorrente c: contas) {
 			System.out.println(c);
 		}
+
+		String nrOrigem = JOptionPane.showInputDialog("Nr. Conta Origem");
+		String nrDestino = JOptionPane.showInputDialog("Nr. Conta Destino");
+		Double valorTranf = Double.valueOf(JOptionPane.showInputDialog("Valor Tranferência"));
+
+		int contaOrigem=0;
+		int contaDestino=0;
+		for (int i = 0; i < contas.size(); i++) {
+			if(contas.get(i).getNumero().equals(nrOrigem)) {
+				contaOrigem = i;
+			}
+			if(contas.get(i).getNumero().equals(nrDestino)) {
+				contaDestino = i;
+			}
+		}
+		contas.get(contaOrigem).transferencia(valorTranf, contas.get(contaDestino));
+	
 		
 	}
 
