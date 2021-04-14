@@ -37,5 +37,8 @@ public class Pessoa {
 		return "Pessoa [nome=" + nome + ", nascimento=" + nascimento + "]";
 	}
 	
+	public void imprimeDados() {
+		System.out.println(this.toString());
+	}
 	
 }

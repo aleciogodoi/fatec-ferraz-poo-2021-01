@@ -19,7 +19,5 @@ public class Cliente extends Pessoa {
 		return super.toString()+" Cliente [codigo=" + codigo + "]";
 	}
 
-	public void imprimeDados() {
-		System.out.println(this.toString());
-	}
+
 }

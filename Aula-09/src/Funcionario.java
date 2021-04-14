@@ -24,9 +24,6 @@ public class Funcionario extends Pessoa{
 		return super.toString()+" Funcionario [salario=" + salario + ", calcularImposto()=" + calcularImposto() + "]";
 	}
 
-	public void imprimeDados() {
-		System.out.println(this.toString());
-	}
 	
 	public float calcularImposto() {
 		return salario * 3/100;
