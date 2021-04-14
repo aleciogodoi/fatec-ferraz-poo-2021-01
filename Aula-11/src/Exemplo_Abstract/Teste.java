@@ -11,6 +11,7 @@ public class Teste {
 		r2d2.mudaDirecao(180);
 		r2d2.move(20);
 		System.out.println(r2d2);
+		
 	}
 
 }
