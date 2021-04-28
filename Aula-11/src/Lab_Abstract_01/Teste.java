@@ -10,5 +10,15 @@ public class Teste {
 		Quadrado q1 = new Quadrado("azul", 5);
 		System.out.println(q1);
 		q1.draw();		
+		
+		System.out.println();
+		Triangulo t1 = new Triangulo(7, 2, "verde");
+		System.out.println(t1);
+		t1.draw();		
+		
+		System.out.println();
+		Circulo c1 = new Circulo(3, "verde");
+		System.out.println(c1);
+		c1.draw();		
 	}
 }

@@ -9,4 +9,7 @@
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="java.util.Locale"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="CadastroPessoa"/>
+    <fullyQualifiedTypeName name="Lab_Abstract_01.Figura"/>
+    <fullyQualifiedTypeName name="Lab_Abstract_01.Retangulo"/>
 </qualifiedTypeNameHistroy>
