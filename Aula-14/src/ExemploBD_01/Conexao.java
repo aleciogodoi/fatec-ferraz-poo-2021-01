@@ -20,14 +20,23 @@ public class Conexao {
 			return conn;
 			
 		} catch (ClassNotFoundException ex) {
-			System.out.println("Problemas na fonte de dados - driver não encontrado!!!");
+			System.out.println("Problemas na fonte de dados - driver não encontrado!!! "+ex);
 			System.exit(0);
 			return null;
 		} catch (SQLException ex) {
-			System.out.println("Problemas na fonte de dados - conexão não realizada!!!");
+			System.out.println("Problemas na fonte de dados - conexão não realizada!!! " + ex);
 			System.exit(0);
 			return null;
 		}
 
+	}
+	
+	public void fechar(Connection conn) {
+		try {
+			conn.close();
+			System.out.println("Conexao "+ conn + "  fechada com sucesso.");
+		} catch (SQLException ex) {
+			System.out.println("Problemas na fonte de dados - fechar conexão!!!"+ ex);
+		}
 	}
 }
