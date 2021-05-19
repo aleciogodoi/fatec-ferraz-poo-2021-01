@@ -32,6 +32,23 @@ public class Teste {
 			System.out.println("Erro de execução comando\n"+e);
 		}
 		
+		//Select * From Departamento;
+		sql = "Select * From Departamento";
+		System.out.println(sql);
+		try {
+			Statement comandoSQL = conn.createStatement();
+			ResultSet rs = comandoSQL.executeQuery(sql);
+			while (rs.next()) {
+				System.out.print(rs.getString("idDepto")+"\t");
+				System.out.print(rs.getString("NomeDepto")+"\t\t");
+				System.out.print(rs.getString("Gerente")+"\t\t");
+				System.out.print(rs.getString("Divisao")+"\t\t");
+				System.out.println(rs.getString("Local")+"\t\t");
+			}
+		} catch (SQLException ex) {
+			
+		}
+		
 		// Fechando a conexão
 		conexao.fechar(conn);
 	}

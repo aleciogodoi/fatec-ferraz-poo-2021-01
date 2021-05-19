@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public class Conexao {
 	public Connection conectar() {
 		try {
+			
 			Connection conn;  // Cria um objeto do tipo connection
 			Class.forName("org.sqlite.JDBC");  // Procura um driver de conexão
 			System.out.println("Driver encontrado!!!"); 
@@ -16,6 +17,15 @@ public class Conexao {
 			
 			String bdURL = "jdbc:sqlite:"+pathBD+"/bd/ALPOO.db";   // URL do Banco de Dados
 			conn = DriverManager.getConnection(bdURL); // Conectar com um BD
+			
+			/*
+			Connection conn; //Cria um objeto do tipo connection
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String bdURL = "jdbc:mysql://localhost:3306/depto_emp?useTimezone=true&serverTimezone=UTC";
+			String bdUsuario = "ale";
+			String bdSenha = "ale";
+			conn = DriverManager.getConnection(bdURL, bdUsuario, bdSenha);
+			*/
 			System.out.println("Conexao realizada com sucesso! Nome da Conexao: " + conn);
 			return conn;
 			
