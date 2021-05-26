@@ -46,7 +46,28 @@ public class UsuarioDAO {
 	}
 
 	public static ArrayList<Usuario> find(String nome) {
-		return null;
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		conexao = new Conexao();
+		conn = conexao.conectar();
+		String sql = "Select * From Usuario Where Nome = ?";
+
+		try {
+			PreparedStatement comandoSQL = conn.prepareStatement(sql);
+			comandoSQL.setString(1, nome);
+			ResultSet rsDados = comandoSQL.executeQuery();
+			while (rsDados.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setIdUsuario(rsDados.getInt("idUsuario"));
+				usuario.setNome(rsDados.getString("Nome"));
+				usuario.setEmail(rsDados.getString("Email"));
+				usuario.setTelefone(rsDados.getString("Telefone"));
+				usuario.setEndereco(rsDados.getString("Endereco"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		conexao.fechar(conn);
+		return usuarios;
 	}
 
 	public static ArrayList<Usuario> getAll() {
