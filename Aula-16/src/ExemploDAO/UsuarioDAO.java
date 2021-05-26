@@ -29,6 +29,7 @@ public class UsuarioDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		conexao.fechar(conn);
 	}
 
 	public static void update(Usuario usuario) {
@@ -47,14 +48,13 @@ public class UsuarioDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		conexao.fechar(conn);
 	}
 
 	public static void delete(int idUsuario) {
 		conexao = new Conexao();
 		conn = conexao.conectar();
 		String sql="Delete From Usuario Where idUsuario=?";
-		
 		try {
 			PreparedStatement comandoSQL = conn.prepareStatement(sql);
 			comandoSQL.setInt(1, idUsuario);
@@ -62,6 +62,7 @@ public class UsuarioDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		conexao.fechar(conn);
 	}
 
 	public static Usuario find(int idUsuario) {
