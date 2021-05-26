@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="CadastroPessoa"/>
     <fullyQualifiedTypeName name="Lab_Abstract_01.Figura"/>
     <fullyQualifiedTypeName name="Lab_Abstract_01.Retangulo"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
@@ -17,4 +16,5 @@
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

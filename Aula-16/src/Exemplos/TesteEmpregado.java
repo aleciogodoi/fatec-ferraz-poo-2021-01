@@ -1,10 +1,13 @@
-package ExemploBD_01;
+package Exemplos;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
 
 
 public class TesteEmpregado {
@@ -18,15 +21,17 @@ public class TesteEmpregado {
 	}
 	
 	public static ArrayList<Empregado> carregaEmpregados(){
+		int idDepto = Integer.valueOf(JOptionPane.showInputDialog("Digite o código do Departamento"));
 		ArrayList<Empregado> empregados = new ArrayList<Empregado>();
 		Connection conn;
 		Conexao conexao = new Conexao();
 		conn = conexao.conectar();
-		String sql = "Select * From empregado";
+		String sql = "Select * From empregado Where IdDepto = ?";
 		
 		try {
-			Statement comandoSQL = conn.createStatement();
-			ResultSet rsDados = comandoSQL.executeQuery(sql);
+			PreparedStatement comandoSQL = conn.prepareStatement(sql);
+			comandoSQL.setInt(1, idDepto);
+			ResultSet rsDados = comandoSQL.executeQuery();
 			while (rsDados.next()) {
 				Empregado empregado = new Empregado();
 				empregado.setIdEmpregado(rsDados.getInt("IdEmpregado"));
