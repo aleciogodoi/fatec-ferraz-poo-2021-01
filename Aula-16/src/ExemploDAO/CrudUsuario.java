@@ -1,11 +1,14 @@
 package ExemploDAO;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class CrudUsuario {
 
 	
 	public static void main(String[] args) {
+		ArrayList<Usuario> usuarios;
 		int opcao;
 		do {
 			opcao = menu();
@@ -15,14 +18,20 @@ public class CrudUsuario {
 				UsuarioDAO.insert(usuario);
 				break;
 			case 2:
+				JOptionPane.showMessageDialog(null, UsuarioDAO.find(entradaId()));
 				break;
 			case 3:
+				usuarios = UsuarioDAO.find(entradaNome());
+				imprimeDados(usuarios);
 				break;
 			case 4:
+				usuarios = UsuarioDAO.getAll();
+				imprimeDados(usuarios);
 				break;
 			case 5:
 				break;
 			case 6:
+				UsuarioDAO.delete(entradaId());
 				break;
 			}
 			
@@ -51,5 +60,20 @@ public class CrudUsuario {
 		usuario.setEndereco(JOptionPane.showInputDialog("Endereço:"));
 		return usuario;
 	}
-
+	
+	public static int entradaId () {
+		return Integer.valueOf(JOptionPane.showInputDialog("Id:"));
+	}	
+	
+	public static String entradaNome () {
+		return JOptionPane.showInputDialog("Nome:");
+	}
+	
+	public static void imprimeDados(ArrayList<Usuario> usuarios) {
+		String dados="";
+		for(Usuario usuario: usuarios) {
+			dados += usuario+"\n";
+		}
+		JOptionPane.showMessageDialog(null,dados);
+	}
 }
