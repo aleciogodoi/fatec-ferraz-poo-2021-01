@@ -14,5 +14,12 @@ public class TesteUsuario {
 		for (Usuario usuario: UsuarioDAO.getAll()) {
 			System.out.println(usuario);
 		}
+		UsuarioDAO.update(new Usuario(3,"Guilherme Silva de Oliveira","guilherme@gmail.com","11 99777-0002","Rua das Crias, 500 - Centro"));
+		System.out.println(UsuarioDAO.find(3));
+		
+		UsuarioDAO.delete(3);
+		for (Usuario usuario: UsuarioDAO.getAll()) {
+			System.out.println(usuario);
+		}
 	}
 }

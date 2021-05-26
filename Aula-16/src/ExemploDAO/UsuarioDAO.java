@@ -29,13 +29,39 @@ public class UsuarioDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	public static void update(Usuario usario) {
+	public static void update(Usuario usuario) {
+		conexao = new Conexao();
+		conn = conexao.conectar();
+		String sql="Update Usuario Set Nome=?, Email=?, Telefone=?, Endereco=? Where idUsuario = ?";
+		
+		try {
+			PreparedStatement comandoSQL = conn.prepareStatement(sql);
+			comandoSQL.setString(1, usuario.getNome());
+			comandoSQL.setString(2, usuario.getEmail());
+			comandoSQL.setString(3, usuario.getTelefone());
+			comandoSQL.setString(4, usuario.getEndereco());
+			comandoSQL.setInt(5, usuario.getIdUsuario());
+			comandoSQL.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public static void delete(int idUsuario) {
+		conexao = new Conexao();
+		conn = conexao.conectar();
+		String sql="Delete From Usuario Where idUsuario=?";
+		
+		try {
+			PreparedStatement comandoSQL = conn.prepareStatement(sql);
+			comandoSQL.setInt(1, idUsuario);
+			comandoSQL.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static Usuario find(int idUsuario) {
