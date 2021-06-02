@@ -21,7 +21,7 @@ public class Conexao {
 			/*
 			Connection conn; //Cria um objeto do tipo connection
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String bdURL = "jdbc:mysql://localhost:3306/depto_emp?useTimezone=true&serverTimezone=UTC";
+			String bdURL = "jdbc:mysql://localhost:3306/alpoo?useTimezone=true&serverTimezone=UTC";
 			String bdUsuario = "ale";
 			String bdSenha = "ale";
 			conn = DriverManager.getConnection(bdURL, bdUsuario, bdSenha);

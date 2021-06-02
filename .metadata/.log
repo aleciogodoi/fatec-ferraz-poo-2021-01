@@ -4005,3 +4005,9 @@ java.nio.file.FileSystemException: C:\fatec-ferraz-poo-2021-01\Aula-17\bd\ALPOO.
 	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2317)
 	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2021-06-02 12:15:33.751
+!MESSAGE Server returned lastModified <= 0 for https://raw.githubusercontent.com/dwagelaar/jar2uml/master/update/artifacts.jar
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2021-06-02 12:15:34.239
+!MESSAGE Server returned lastModified <= 0 for https://raw.githubusercontent.com/dwagelaar/jar2uml/master/update/content.jar

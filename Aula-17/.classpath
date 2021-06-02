@@ -11,5 +11,10 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Google Drive/FATEC/2021/01 - Semestre/Ferraz/POO/Aulas/POO - 17 - 02-06-2021 - Banco de Dados - DAO/JDBC/mysql-connector-java-8.0.17.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
