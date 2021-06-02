@@ -1,3 +1,4 @@
+
 package ExemploDAO;
 
 import java.util.ArrayList;
@@ -5,16 +6,15 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class CrudUsuario {
-
-	
 	public static void main(String[] args) {
 		ArrayList<Usuario> usuarios;
+		Usuario usuario;
 		int opcao;
 		do {
 			opcao = menu();
 			switch (opcao) {
 			case 1:
-				Usuario usuario = entradaDados();
+				usuario = entradaDados();
 				UsuarioDAO.insert(usuario);
 				break;
 			case 2:
@@ -29,6 +29,9 @@ public class CrudUsuario {
 				imprimeDados(usuarios);
 				break;
 			case 5:
+				usuario = UsuarioDAO.find(entradaId());
+				usuario = entradaDados(usuario);
+				UsuarioDAO.update(usuario);
 				break;
 			case 6:
 				UsuarioDAO.delete(entradaId());
@@ -50,7 +53,7 @@ public class CrudUsuario {
 		opcao = Integer.valueOf(JOptionPane.showInputDialog(menu));
 		return opcao;
 	}
-	
+
 	public static Usuario entradaDados() {
 		Usuario usuario = new Usuario(); 
 		usuario.setIdUsuario(Integer.valueOf(JOptionPane.showInputDialog("Id:")));
@@ -58,6 +61,14 @@ public class CrudUsuario {
 		usuario.setEmail(JOptionPane.showInputDialog("Email:"));
 		usuario.setTelefone(JOptionPane.showInputDialog("Telefone:"));
 		usuario.setEndereco(JOptionPane.showInputDialog("Endereço:"));
+		return usuario;
+	}
+
+	public static Usuario entradaDados(Usuario usuario) {
+		usuario.setNome(JOptionPane.showInputDialog("Nome:", usuario.getNome()));
+		usuario.setEmail(JOptionPane.showInputDialog("Email:", usuario.getEmail()));
+		usuario.setTelefone(JOptionPane.showInputDialog("Telefone:", usuario.getTelefone()));
+		usuario.setEndereco(JOptionPane.showInputDialog("Endereço:", usuario.getEndereco()));
 		return usuario;
 	}
 	
