@@ -26,15 +26,19 @@ public class PessoaDAO {
 		conexao.fechar(conn);
 	}
 	
-	/*
-	public static void update(Pessoa Pessoa) {	
+	
+	public static void update(Pessoa pessoa) {	
 		conexao = new Conexao();
 		conn = conexao.conectar();
-		String sql="Update TipoDespesa Set descrTipo=? Where idTipo=?";
+		String sql="Update Pessoa Set cpf=?,dataNascimento=?,nome=?,email=?,peso=?  Where idPessoa=?";
 		try {
 			PreparedStatement comandoSQL = conn.prepareStatement(sql);
-			comandoSQL.setString(1, tipoDespesa.getDescrTipo());
-			comandoSQL.setInt(2, tipoDespesa.getIdTipo());
+			comandoSQL.setString(1, pessoa.getCpf());
+			comandoSQL.setDate(2, pessoa.getDataNascimento());
+			comandoSQL.setString(3, pessoa.getNome());
+			comandoSQL.setString(4, pessoa.getEmail());
+			comandoSQL.setFloat(5, pessoa.getPeso());
+			comandoSQL.setFloat(6, pessoa.getIdPessoa());
 			comandoSQL.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -45,10 +49,10 @@ public class PessoaDAO {
 	public static void delete(int idPessoa) {
 		conexao = new Conexao();
 		conn = conexao.conectar();
-		String sql="Delete From TipoDespesa Where idTipo=?";
+		String sql="Delete From Pessoa Where idPessoa=?";
 		try {
 			PreparedStatement comandoSQL = conn.prepareStatement(sql);
-			comandoSQL.setInt(1, idTipo);
+			comandoSQL.setInt(1, idPessoa);
 			comandoSQL.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -57,45 +61,52 @@ public class PessoaDAO {
 	}
 	
 	public static Pessoa find(int idPessoa) {
-		TipoDespesa tipoDespesa = new TipoDespesa();
+		Pessoa pessoa = new Pessoa();
 		conexao = new Conexao();
 		conn = conexao.conectar();
-		String sql="Select * From TipoDespesa Where idTipo=?";
+		String sql="Select * From Pessoa Where idPessoa=?";
 		try {
 			PreparedStatement comandoSQL = conn.prepareStatement(sql);
-			comandoSQL.setInt(1, idTipo);
+			comandoSQL.setInt(1, idPessoa);
 			ResultSet rsDados = comandoSQL.executeQuery();
 			if (rsDados.next()) {
-				tipoDespesa.setIdTipo(rsDados.getInt("idTipo"));
-				tipoDespesa.setDescrTipo(rsDados.getString("descrTipo"));
+				pessoa.setIdPessoa(rsDados.getInt("idPessoa"));
+				pessoa.setCpf(rsDados.getString("cpf"));
+				pessoa.setDataNascimento(rsDados.getDate("dataNascimento"));
+				pessoa.setNome(rsDados.getString("nome"));
+				pessoa.setEmail(rsDados.getString("email"));
+				pessoa.setPeso(rsDados.getFloat("peso"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		conexao.fechar(conn);		
-		return tipoDespesa;
+		return pessoa;
 	}
 	
-	public static ArrayList<Pessoa> getAll(){
-		ArrayList<TipoDespesa> tipoDespesas = new ArrayList<TipoDespesa>();
+	public static ArrayList<Pessoa> getAll() {
+		ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 		conexao = new Conexao();
 		conn = conexao.conectar();
-		String sql="Select * From TipoDespesa";
+		String sql="Select * From Pessoa";
 		try {
 			PreparedStatement comandoSQL = conn.prepareStatement(sql);
 			ResultSet rsDados = comandoSQL.executeQuery();
 			while (rsDados.next()) {
-				TipoDespesa tipoDespesa = new TipoDespesa();
-				tipoDespesa.setIdTipo(rsDados.getInt("idTipo"));
-				tipoDespesa.setDescrTipo(rsDados.getString("descrTipo"));
-				tipoDespesas.add(tipoDespesa);
+				Pessoa pessoa = new Pessoa();
+				pessoa.setIdPessoa(rsDados.getInt("idPessoa"));
+				pessoa.setCpf(rsDados.getString("cpf"));
+				pessoa.setDataNascimento(rsDados.getDate("dataNascimento"));
+				pessoa.setNome(rsDados.getString("nome"));
+				pessoa.setEmail(rsDados.getString("email"));
+				pessoa.setPeso(rsDados.getFloat("peso"));
+				pessoas.add(pessoa);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		conexao.fechar(conn);		
-		return tipoDespesas;
+		return pessoas;
 	}
-*/
 	
 }
